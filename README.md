@@ -2,7 +2,8 @@
 
 ### 1. install requirements.txt in a Python>=3.7.0 environment, including PyTorch>=1.7.
 ```
-$ cd /PATH/yolov5  # PATH is a directory where you colned this repository
+$ git clone https://github.com/ultralytics/yolov5  # clone
+$ cd yolov5  
 $ pip install -r requirements.txt
 ```
 
@@ -31,7 +32,7 @@ Use partition_dataset.ipynb to split image data into three sets. (train, validat
 ### 6. Lets train!
 ```
 $ cd yolov5
-$ python train.py --img 640 --batch 4 --epochs 50 --data /PATH/dataset/data.yaml --cfg /PATH/yolov5/models/yolov5l.yaml --weights yolov5l.pt
+$ python train.py --img 640 --batch 4 --epochs 50 --data /PATH/dataset/data.yaml --cfg /PATH/yolov5/models/yolov5l.yaml --weights yolov5l.pt # PATH is a directory where you colned this repository
 #use yolov5l weight pre-trainediwth COCO128
 ```
 
