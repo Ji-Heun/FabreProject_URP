@@ -12,16 +12,13 @@ $ pip install -r requirements.txt
 ```
 $ pip3 install labelImg
 $ labelImg
-$ labelImg [IMAGE_PATH] [PRE-DEFINED CLASS FILE] # eg. labelImg /PATH/Lycaenidae/Chilades_pandava 'Chilades pandava' 
+$ labelImg [IMAGE_PATH] [PRE-DEFINED CLASS FILE] 
 ```
+eg. labelImg /PATH/Data/butterfly/Lycaenidae/Chilades_pandava /PATH/Data/butterfly/Lycaenidae/classes.txt 
+PATH is a directory where you colned this yolo-butterfly repository
 
-### 3. Copy images to dataset folder
-```
-$ cp Lycaenidae/*/*.jpeg ./dataset/images
-$ cp Lycaenidae/*/*.txt ./dataset/labels
-```
 
-### 4. Divide datset
+### 4. Copy images to dataset folder and Divide datset
 Use partition_dataset.ipynb to split image data into three sets. (train, validation, and test)
 
 
@@ -32,7 +29,7 @@ Use partition_dataset.ipynb to split image data into three sets. (train, validat
 ### 6. Lets train!
 ```
 $ cd yolov5
-$ python train.py --img 640 --batch 4 --epochs 50 --data /PATH/dataset/data.yaml --cfg /PATH/yolov5/models/yolov5l.yaml --weights yolov5l.pt # PATH is a directory where you colned this repository
+$ python train.py --img 640 --batch 4 --epochs 50 --data /PATH/dataset/data.yaml --cfg /PATH/yolov5/models/yolov5l.yaml --weights yolov5l.pt 
 #use yolov5l weight pre-trainediwth COCO128
 ```
 
