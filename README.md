@@ -2,7 +2,8 @@
 
 ### 1. install requirements.txt in a Python>=3.7.0 environment, including PyTorch>=1.7.
 ```
-$ cd /PATH/yolov5  # PATH is a directory where you colned this repository
+$ git clone https://github.com/ultralytics/yolov5  # clone
+$ cd yolov5  
 $ pip install -r requirements.txt
 ```
 
@@ -11,16 +12,14 @@ $ pip install -r requirements.txt
 ```
 $ pip3 install labelImg
 $ labelImg
-$ labelImg [IMAGE_PATH] [PRE-DEFINED CLASS FILE] # eg. labelImg /PATH/Lycaenidae/Chilades_pandava 'Chilades pandava' 
+$ labelImg [IMAGE_PATH] [PRE-DEFINED CLASS FILE] 
 ```
+eg. labelImg /PATH/Data/butterfly/Lycaenidae/Chilades_pandava /PATH/Data/butterfly/Lycaenidae/classes.txt 
 
-### 3. Copy images to dataset folder
-```
-$ cp Lycaenidae/*/*.jpeg ./dataset/images
-$ cp Lycaenidae/*/*.txt ./dataset/labels
-```
+PATH is a directory where you colned this yolo-butterfly repository
 
-### 4. Divide datset
+
+### 4. Copy images to dataset folder and Divide datset
 Use partition_dataset.ipynb to split image data into three sets. (train, validation, and test)
 
 
@@ -31,7 +30,7 @@ Use partition_dataset.ipynb to split image data into three sets. (train, validat
 ### 6. Lets train!
 ```
 $ cd yolov5
-$ python train.py --img 640 --batch 4 --epochs 50 --data /PATH/dataset/data.yaml --cfg /PATH/yolov5/models/yolov5l.yaml --weights yolov5l.pt
+$ python train.py --img 780 --batch 4 --epochs 300 --name Lycaenidae01 --data /home/urpjh/yolo-butterfly/Data/dataset/data.yaml --cfg /home/urpjh/yolo-butterfly/yolov5/yolov5/models/yolov5x.yaml --weights yolov5x.pt --patience 30 --freeze 
 #use yolov5l weight pre-trainediwth COCO128
 ```
 
@@ -49,6 +48,6 @@ plot_results('/PATH/yolov5/runs/train/exp1/results.csv')
 
 ### 8. Inference
 ```
-$ python detect.py --weights /PATH/yolov5/runs/train/exp1/weights/best.pt --img 640 --conf 0.5 --source "/PATH/dataset/test/" --name exp1
+$ python detect.py --weights /PATH/yolov5/runs/train/Lycaenidae01/weights/best.pt --img 1024 --conf-thres 0.5 --source "/PATH/dataset/test/" --name Lycaenidae01
 ```
 It will be saved under /PATH/yolov5/runs/detect.
