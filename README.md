@@ -48,6 +48,6 @@ plot_results('/PATH/yolov5/runs/train/exp1/results.csv')
 
 ### 8. Inference
 ```
-$ python train.py --img 780 --batch 4 --epochs 300 --name Lycaenidae01 --data /home/urpjh/yolo-butterfly/Data/dataset/data.yaml --cfg /home/urpjh/yolo-butterfly/yolov5/yolov5/models/yolov5x.yaml --weights yolov5x.pt --patience 30 --freeze
+$ python detect.py --weights /PATH/yolov5/runs/train/Lycaenidae01/weights/best.pt --img 1024 --conf-thres 0.5 --source "/PATH/dataset/test/" --name Lycaenidae01
 ```
 It will be saved under /PATH/yolov5/runs/detect.
