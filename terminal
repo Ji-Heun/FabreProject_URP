@@ -1,0 +1,16 @@
+python train.py 
+--img 1024 
+--batch 4 
+--epochs 5
+--project /home/urpjh/yolo-butterfly/runs 
+--name Lycaenidae04/train 
+--data /home/urpjh/yolo-butterfly/dataset/data.yaml 
+--cfg /home/urpjh/yolo-butterfly/yolov5/models/yolov5l.yaml 
+--weights yolov5l.pt 
+--freeze 2
+
+python detect.py 
+--project /home/urpjh/yolo-butterfly/runs 
+--name Lycaenidae04/detect
+--weights /home/urpjh/yolo-butterfly/runs/Lycaenidae04/train/weights/best.pt 
+--img 1024 --conf-thres 0.5 --source /home/urpjh/yolo-butterfly/dataset/test 
